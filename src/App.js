@@ -1,23 +1,21 @@
-import logo from './logo.svg';
+import React from "react";
 import './App.css';
+import ProductList from './components/ProductList';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import SideFilter from './components/SideFilter';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <aside  className='sidebar'>
+          <SideFilter />
+        </aside>
+        <main className='main'>
+          <h2>Edvora</h2>
+          <h4>Products</h4>
+        <ProductList />
+        <ProductList />
+        </main>
     </div>
   );
 }

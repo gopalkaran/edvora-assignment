@@ -1,0 +1,16 @@
+.SideFilter{
+    height: fit-content;
+    width: fit-content;
+    background: #222;
+    padding: 1rem 1rem 2rem 1rem;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.SideFilter h5{
+    color: #ddd;
+    border-bottom: 0.1rem solid #ddd;
+    padding-bottom: 0.5rem;
+}
