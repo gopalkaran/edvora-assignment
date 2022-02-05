@@ -26,7 +26,7 @@ function App() {
         const productNameList = products.map(product => {
           return product.product_name
         })
-        const productNames = [... new Set(productNameList)]
+        const productNames = [...new Set(productNameList)]
         setProductNameList(productNames)
         const cityList = products.map(product => {
           return product.address.city
