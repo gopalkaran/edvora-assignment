@@ -1,15 +1,10 @@
 .row{
     display: flex;
     gap: 1rem;
-    /* margin: 0 auto; */
     background: #222;
     padding: 1rem;
     border-radius: 0.5rem;
     overflow-x: auto;
-}
-
-.rowContainer{
-    width: 100%;
 }
 
 .rowContainer h5{

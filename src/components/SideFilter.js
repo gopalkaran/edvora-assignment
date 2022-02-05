@@ -2,7 +2,8 @@ import React from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import styles from '../styles/SideFilter.module.css'
 
-const SideFilter = () => {
+const SideFilter = ({productNameList, cityList, stateList}) => {
+
   return (
     <div className={styles.SideFilter}>
       <h5>Filters</h5>
@@ -12,10 +13,13 @@ const SideFilter = () => {
           Products
         </Dropdown.Toggle>
 
-        <Dropdown.Menu>
-          <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-          <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-          <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+        <Dropdown.Menu style={{maxHeight: '40vh',overflowY: 'scroll'}}>
+          {
+            productNameList.map(name => {
+              return <Dropdown.Item href="#/action-1">{name}</Dropdown.Item>
+            })
+          }
+          
         </Dropdown.Menu>
       </Dropdown>
 
@@ -24,10 +28,13 @@ const SideFilter = () => {
           State
         </Dropdown.Toggle>
 
-        <Dropdown.Menu>
-          <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-          <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-          <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+        <Dropdown.Menu style={{maxHeight: '40vh',overflowY: 'scroll'}}>
+          {
+            stateList.map(state => {
+              return <Dropdown.Item href="#/action-3">{state}</Dropdown.Item>
+            })
+          }
+          
         </Dropdown.Menu>
       </Dropdown>
 
@@ -37,10 +44,13 @@ const SideFilter = () => {
           City
         </Dropdown.Toggle>
 
-        <Dropdown.Menu>
-          <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-          <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-          <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+        <Dropdown.Menu style={{maxHeight: '40vh',overflowY: 'scroll'}}>
+          {
+            cityList.map(city => {
+              return <Dropdown.Item href="#/action-3">{city}</Dropdown.Item>
+            })
+          }
+          
         </Dropdown.Menu>
       </Dropdown>
       </div>

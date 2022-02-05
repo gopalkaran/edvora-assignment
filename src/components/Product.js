@@ -1,21 +1,28 @@
 import React from 'react';
 import styles from '../styles/Product.module.css'
+import { useEffect, useState } from 'react';
 
-const Product = () => {
+const Product = ({product}) => {
+  const [date, setDate] = useState('') 
+  useEffect(()=>{
+     let timeArray = product.time.split('T')
+     let date = timeArray[0]
+     setDate(date)
+  }, [product.time])
   return(
   <article className={styles.card}>
-      <img className={styles.cardImg} src='https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500' alt='product image' />
+      <img className={styles.cardImg} src={product.image} alt={product.product_name} />
       <div className={styles.cardBasic}>
-          <h6>Product Name</h6>
-          <small>Brand Name</small>
-          <h6>$ 29.99</h6>
+          <h6>{product.product_name}</h6>
+          <small>{product.brand_name}</small>
+          <h6>$ {product.price}</h6>
       </div>
       <div className={styles.cardExtra}> 
           <div>
-              <small>Location</small>
-              <small>Date: 10/12/2021</small>
+              <small>{product.address.city}, {product.address.state}</small>
+              <small>Date: {date}</small>
           </div>
-          <small>Description of the Product/Item</small>
+          <small>{product.discription}</small>
       </div>
   </article>
   )
