@@ -6,9 +6,10 @@ const ProductList = ({name,productList}) => {
   const [categorizedList, setCategorizedList] = useState([])
   console.log(productList)
   useEffect(()=>{
-    const modifiedList = productList.filter(product => product.product_name === name)
+    const modifiedList = productList.filter(product => product.brand_name === name)
     setCategorizedList(modifiedList)
-  }, [])
+  }, [name])
+  
   return(
     <div className={styles.rowContainer}>
       <h5>{name}</h5>

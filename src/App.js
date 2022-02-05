@@ -9,6 +9,7 @@ function App() {
   const [productList, setProductList] = useState([]);
 
   const [productNameList, setProductNameList] = useState([])
+  const [brandNameList, setBrandNameList] = useState([])
   const [cityList, setCityList] = useState([])
   const [stateList, setStateList] = useState([])
 
@@ -38,6 +39,12 @@ function App() {
         })
         const states = [...new Set(stateList)]
         setStateList(states)
+
+        const brandNameList = products.map(product => {
+          return product.brand_name
+        })
+        const brandNames = [...new Set(brandNameList)]
+        setBrandNameList(brandNames)
       })
       .catch(function (error) {
         console.log(error);
@@ -54,7 +61,7 @@ function App() {
         <h2>Edvora</h2>
         <h4>Products</h4>
         {
-          productNameList.map(name =>{
+          brandNameList.map(name =>{
             return <ProductList name={name} productList={productList} />
           })
         }
