@@ -1,15 +1,20 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Product from './Product';
 import styles from '../styles/ProductList.module.css'
 
-const ProductList = ({productList}) => {
+const ProductList = ({name,productList}) => {
+  const [categorizedList, setCategorizedList] = useState([])
   console.log(productList)
+  useEffect(()=>{
+    const modifiedList = productList.filter(product => product.product_name === name)
+    setCategorizedList(modifiedList)
+  }, [])
   return(
     <div className={styles.rowContainer}>
-      <h5>Product Name</h5>
+      <h5>{name}</h5>
       <div className={styles.row}>
           {
-            productList.length && productList.map((product, i) => {
+            categorizedList.length && categorizedList.map((product, i) => {
               return <Product key={i} product={product} />
             })
           }

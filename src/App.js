@@ -53,8 +53,13 @@ function App() {
       <main className="main">
         <h2>Edvora</h2>
         <h4>Products</h4>
-        <ProductList productList={productList} />
-        <ProductList productList={productList} />
+        {
+          productNameList.map(name =>{
+            return <ProductList name={name} productList={productList} />
+          })
+        }
+        {/* <ProductList productList={productList} />
+        <ProductList productList={productList} /> */}
       </main>
     </div>
   );
